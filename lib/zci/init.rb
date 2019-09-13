@@ -33,33 +33,33 @@ module ZCI
     config = <<-EOS.strip_heredoc
     ---
     # Crowdin API credentials
-    crowdin_project_id: '<%your-crowdin-project-id%>'
-    crowdin_api_key: '<%your-crowdin-api-key%>'
+    crowdin_project_id: '{{crowdin-project-id}}'
+    crowdin_api_key: '{{crowdin-project-api-key}}'
     crowdin_base_url: 'https://api.crowdin.com'
 
     # Zendesk API credentials
-    zendesk_base_url: 'https://<%subdomain%>.zendesk.com/api/v2/'
-    zendesk_username: '<%your-zendesk-username%>'
-    zendesk_password: '<%your-zendesk-password%>'
+    zendesk_base_url: 'https://{{subdomain}}.zendesk.com/api/v2/'
+    zendesk_username: '{{zendesk-admin-username}}'
+    zendesk_password: '{{zendesk-admin-password}}'
 
     # Zendesk catogories
     categories:
-    - zendesk_category: '<%zendesk-category-id%>'
+    - zendesk_category: '{{zendesk-category-id}}'
       translations:
         -
-          crowdin_language_code: '<%crowdin-language-code%>' # the full list: https://support.crowdin.com/api/language-codes/
-          zendesk_locale: '<%zendesk-locale%>' # the full list: https://support.zendesk.com/hc/en-us/articles/203761906-Language-codes-for-Zendesk-supported-languages
+          crowdin_language_code: '{{crowdin-language-code}}' # the full list: https://support.crowdin.com/api/language-codes/
+          zendesk_locale: '{{zendesk-locale}}' # the full list: https://support.zendesk.com/hc/en-us/articles/203761906-Language-codes-for-Zendesk-supported-languages
         -
-          crowdin_language_code: '<%crowdin-language-code%%>'
-          zendesk_locale: '<%zendesk-locale%>'
-    - zendesk_category: '<%zendesk-category-id%>'
+          crowdin_language_code: '{{crowdin-language-code%}}'
+          zendesk_locale: '{{zendesk-locale}}'
+    - zendesk_category: '{{zendesk-category-id}}'
       translations:
         -
-          crowdin_language_code: '<%crowdin-language-code%%>'
-          zendesk_locale: '<%zendesk-locale%>'
+          crowdin_language_code: '{{crowdin-language-code%}}'
+          zendesk_locale: '{{zendesk-locale}}'
         -
-          crowdin_language_code: '<%crowdin-language-code%%>'
-          zendesk_locale: '<%zendesk-locale%>'
+          crowdin_language_code: '{{crowdin-language-code%}}'
+          zendesk_locale: '{{zendesk-locale}}'
     EOS
 
     File.open("#{root_dir}/#{project_name}/zci.yml", 'w') do |file|
